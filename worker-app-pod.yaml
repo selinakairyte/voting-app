@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: worker-app-pod
+  labels:
+    name: worker-app-pod
+    app: demo-voting-app
+spec:
+  containers:
+    - name: worker-app
+      image: kodekloud/examplevotingapp_worker:v1
+      resources:
+        requests:
+          memory: "128Mi"  # Adjust this based on your application's requirements
+          cpu: "100m"      # Adjust this based on your application's requirements
+        limits:
+          memory: "256Mi"  # Adjust this based on your application's requirements
+          cpu: "200m"      # Adjust this based on your application's requirements
+      command: ["/bin/sleep", "2"]
